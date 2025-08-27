@@ -1,6 +1,6 @@
-import { BrandCard } from './brandCard';
 import banner from '../assets/imagen-surf-medrec.jpg'
-
+import { BrandSection } from './BrandSection';
+import { InfoBrand } from './InfoBrand';
 export function MainSection() {
   return (
     <main>
@@ -17,19 +17,8 @@ export function MainSection() {
           </div>
       </section>
 
-      <section>
-        <div>
-          <h2 className="text-3xl font-bold text-center my-8">Nuestras Marcas</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-6 px-4">
-            {/**lo siguiente es el componente brandCard */}
-            <BrandCard />
-            <BrandCard />
-            <BrandCard />
-            <BrandCard />
-          </div>
-        </div>
-      </section>
-
+      <BrandSection />
+      <InfoBrand />
     </main>
   );
 }

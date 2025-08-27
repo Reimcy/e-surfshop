@@ -3,11 +3,31 @@ import iconMenu from '../assets/icon_menu.svg'
 import cruz from '../assets/cruz.png'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { ItemNav } from './itemNav';
+
+
+
 
 export function HeaderNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navBarClass = `fixed z-50 w-full flex justify-between items-center p-4  text-black ${scrolled ? 'text-white bg-gray-800' : 'bg-transparent'} transition-colors duration-300`;
 
+  const modulNav =[{id:1,
+                    to:"/", 
+                    text:"Inicio"},
+                  { id:2,
+                    to:"/register",
+                    text:"Registro"},
+                  { id:3,
+                    to:"/login",
+                    text:"Login"}];
+
+  const renderMenuItems = () => {
+    return modulNav.map(item => (
+      <ItemNav key={item.id} to={item.to} text={item.text} />
+    ));
+  };
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -31,8 +51,6 @@ export function HeaderNav() {
     };
   },[]);
   // Define the class for the navbar element
-  const navBarClass = `fixed z-50 w-full flex justify-between items-center p-4  text-black ${scrolled ? 'text-white bg-gray-800' : 'bg-transparent'} transition-colors duration-300`;
-  
   return (
     <nav className={navBarClass}>
       <div className='ml-1'>
@@ -44,11 +62,10 @@ export function HeaderNav() {
       </div>
 
       {menuOpen && (
-
         //este es mi componente de menudesplegable
         <div className='absolute top-16 right-0 bg-white text-black p-4 rounded shadow-lg w-[20rem] h-lvh sm:hidden'>
             
-            <h2 className='text-3xl'>Menu</h2>
+          <h2 className='text-3xl'>Menu</h2>
             
             <div className='absolute top-2 right-2 cursor-pointer' onClick={toggleMenu}>
               <img className='size-3.5' src={cruz} alt="" />
@@ -56,20 +73,14 @@ export function HeaderNav() {
       
 
           <ul className='flex flex-col gap-4'>
-            <li className='text-xl'><a href="#">inicio</a></li>
-            <li className='text-xl'><a href="#">nosotros</a></li>
-            <li className='text-xl'><a href="#">marcas</a></li>
-            <li className='text-xl'><a href="#">contactos</a></li>
+            {renderMenuItems()}
           </ul>
         </div>
       )}
 
       <div className='hidden sm:flex sm:right-11'>
         <ul className='flex sm:gap-10 md:gap-20 lg:gap-24'>
-          <li className='text-xl'><a href="#">inicio</a></li>
-          <li className='text-xl'><a href="#">nosotros</a></li>
-          <li className='text-xl'><a href="#">marcas</a></li>
-          <li className='text-xl' ><a href="#">contactos</a></li>
+          {renderMenuItems()}
         </ul>
       </div>
     </nav>

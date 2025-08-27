@@ -7,7 +7,6 @@ export function HomePage() {
     <>
       <HeaderNav/>
      <MainSection/>
-      <InfoBrand/>
       <Footer/>
     </>
   );

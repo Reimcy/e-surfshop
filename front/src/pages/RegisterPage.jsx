@@ -1,6 +1,9 @@
+import { HeaderNav } from "../components/headerNav";
 
 export function RegisterPage() {
     return (
+        <>
+        <HeaderNav/>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <h1 className="text-4xl font-bold mb-6">Register</h1>
             <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
@@ -19,5 +22,6 @@ export function RegisterPage() {
                 <button type="submit" className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">Register</button>
             </form>
         </div>
+        </>
     );
 }

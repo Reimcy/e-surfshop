@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 const UserProfile = ({ user, onLogout }) => {
   return (
+
+
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
@@ -86,7 +88,7 @@ const LoginForm = ({ onLogin }) => {
 };
 
 // Componente principal que une todo
-const UserAuthComponent = () => {
+export const UserAuthComponent = () => {
   const [user, setUser] = useState(null);
 
   const handleLogin = (userData) => {
